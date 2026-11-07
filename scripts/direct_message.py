@@ -26,10 +26,8 @@ from telethon.errors import (
 import asyncio
 import sys
 
-# Config (prompted at runtime instead of hardcoded)
 session_name = "userbot_session"
 
-# Client logic
 async def main():
     print("\nWelcome to the Simple Script to Telegram Your Friends.")
     print("\n------")
