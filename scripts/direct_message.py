@@ -36,7 +36,7 @@ async def main():
         try:
             api_id_raw = input("\nPlease enter your Telegram api_id: ").strip()
         except KeyboardInterrupt:
-            print("\n\nKeyboard interrupt detected. Exiting safely...")
+            print("\n\nKeyboard interrupt detected. Exiting safely...\n")
             return
         try:
             api_id = int(api_id_raw)
@@ -48,7 +48,7 @@ async def main():
         try:
             api_hash = input("Please enter your Telegram api_hash: ").strip()
         except KeyboardInterrupt:
-            print("\n\nKeyboard interrupt detected. Exiting safely...")
+            print("\n\nKeyboard interrupt detected. Exiting safely...\n")
             return
         if api_hash:
             break
@@ -67,7 +67,7 @@ async def main():
                         target = input(
                             "\nPlease enter your friend's username or user ID: ").strip()
                     except KeyboardInterrupt:
-                        print("\n\nKeyboard interrupt detected. Exiting safely...")
+                        print("\n\nKeyboard interrupt detected. Exiting safely...\n")
                         return
                     if not target:
                         print("Error: Target cannot be empty. Please try again.")
@@ -78,7 +78,7 @@ async def main():
                     try:
                         message = input("Message to send: ").strip()
                     except KeyboardInterrupt:
-                        print("\n\nKeyboard interrupt detected. Exiting safely...")
+                        print("\n\nKeyboard interrupt detected. Exiting safely...\n")
                         return
                     if not message:
                         print("Error: Message cannot be empty.")
@@ -120,12 +120,12 @@ async def main():
                         try:
                             again = input("\nSend another message? (y/n): ").strip().lower()
                         except KeyboardInterrupt:
-                            print("\n\nKeyboard interrupt detected. Exiting safely...")
+                            print("\n\nKeyboard interrupt detected. Exiting safely...\n")
                             return
                         if again in ("y", "yes"):
                             break
                         if again in ("n", "no", "exit", "quit", "q"):
-                            print("\nSee you!")
+                            print("\nSee you!\n")
                             return
                         print("Error: Please enter 'y' or 'n'.")
 
@@ -134,7 +134,7 @@ async def main():
                     await asyncio.sleep(e.seconds)
 
                 except KeyboardInterrupt:
-                    print("\n\nKeyboard interrupt detected. Exiting safely...")
+                    print("\n\nKeyboard interrupt detected. Exiting safely...\n")
                     return
 
                 except Exception as e:
@@ -142,24 +142,24 @@ async def main():
 
     except ApiIdInvalidError:
         print("\nError: The api_id / api_hash / the combination is invalid.")
-        print("Try double-checking them at https://my.telegram.org → API development tools.")
+        print("Try double-checking them at https://my.telegram.org → API development tools.\n")
     except AccessTokenInvalidError:
         print("\nError: The session is invalid or has been revoked.")
-        print(f"Try deleting '{session_name}.session' and running the script again.")
+        print(f"Try deleting '{session_name}.session' and running the script again.\n")
     except PhoneNumberInvalidError:
         print("\nError: The phone number associated with this login is invalid.")
-        print(f"Try checking the number and running the script again.")
+        print(f"Try checking the number and running the script again.\n")
     except RPCError as e:
-        print(f"\nThere's a Telegram API error, but stay cool! - {e}")
+        print(f"\nThere's a Telegram API error, but stay cool! - {e}\n")
     except KeyboardInterrupt:
-        print("\n\nKeyboard interrupt detected. Exiting safely...")
+        print("\n\nKeyboard interrupt detected. Exiting safely...\n")
     except Exception as e:
-        print(f"\nAn unexpected error occured, but stay cool! - {e}")
+        print(f"\nAn unexpected error occured, but stay cool! - {e}\n")
 
 
 if __name__ == "__main__":
     try:
         asyncio.run(main())
     except KeyboardInterrupt:
-        print("\n\nKeyboard interrupt detected. Exiting safely...")
+        print("\n\nKeyboard interrupt detected. Exiting safely...\n")
         sys.exit(0)
